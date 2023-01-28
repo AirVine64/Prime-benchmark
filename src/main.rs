@@ -3,16 +3,14 @@ use std::time::{Instant, Duration};
 
 fn main() {
     //Variables
-    let mut primes: Vec<i32>;
     let mut times: Vec<Duration> = Vec::new();
-    let mut now;
-    let mut z: i32;
 
     //Benchmark loop
     for i in 0..10 {
         //Variables
-        primes = Vec::new();
-        now = Instant::now();
+        let now = Instant::now();
+        let mut primes: Vec<i32> = Vec::new();
+        let mut z: i32;
 
         //Main part
         for j in (1..100000).step_by(2) {
