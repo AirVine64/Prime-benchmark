@@ -3,10 +3,12 @@ use std::time::{Instant, Duration};
 
 fn main() {
     //Variables
+    let now_global = Instant::now();
     let mut times: Vec<Duration> = Vec::new();
+    let mut percentage: f32;
 
     //Benchmark loop
-    for i in 0..10 {
+    for i in 0..50 {
         //Variables
         let now = Instant::now();
         let mut primes: Vec<i32> = Vec::new();
@@ -36,10 +38,12 @@ fn main() {
         for _l in 0..i+1 {
             print!("#");
         }
-        for _l in 0..9-i {
+        for _l in 0..50-i {
             print!("_");
         }
-        println!("]")
+        print!("]");
+        percentage = 100.0 * ((i+1) as f32/(i+1+50-i) as f32);
+        println!(" - {:.2}%", percentage);
     }
 
     //Average calculation
@@ -64,6 +68,8 @@ fn main() {
     }
 
     //Result printout
+    let elapsed_global = now_global.elapsed();
     print!("\x1B[2J\x1B[1;1H");
     println!("Average time: {}{}", sum_f, unit);
+    println!("Overall time: {:.2?}", elapsed_global);
 }
