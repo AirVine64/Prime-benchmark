@@ -9,7 +9,7 @@ fn main() {
     let mut z: i32;
 
     //Benchmark loop
-    for _i in 1..10 {
+    for i in 0..10 {
         //Variables
         primes = Vec::new();
         now = Instant::now();
@@ -31,6 +31,17 @@ fn main() {
         }
         let elapsed = now.elapsed();
         times.push(elapsed);
+
+        //Progress bar
+        print!("\x1B[2J\x1B[1;1H");
+        print!("[");
+        for _l in 0..i+1 {
+            print!("#");
+        }
+        for _l in 0..9-i {
+            print!("_");
+        }
+        println!("]")
     }
 
     //Average calculation
@@ -55,5 +66,6 @@ fn main() {
     }
 
     //Result printout
+    print!("\x1B[2J\x1B[1;1H");
     println!("Average time: {}{}", sum_f, unit);
 }
