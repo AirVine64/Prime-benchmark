@@ -9,7 +9,7 @@ fn main() {
     let mut z: i32;
 
     //Benchmark loop
-    for _i in 1..100 {
+    for _i in 1..10 {
         //Variables
         primes = Vec::new();
         now = Instant::now();
@@ -55,5 +55,5 @@ fn main() {
     }
 
     //Result printout
-    println!("{}{}", sum_f, unit);
+    println!("Average time: {}{}", sum_f, unit);
 }
