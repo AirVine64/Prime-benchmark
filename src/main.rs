@@ -70,6 +70,6 @@ fn main() {
     //Result printout
     let elapsed_global = now_global.elapsed();
     print!("\x1B[2J\x1B[1;1H");
-    println!("Average time: {}{}", sum_f, unit);
+    println!("Average time: {:.3}{}", sum_f, unit);
     println!("Overall time: {:.2?}", elapsed_global);
 }
